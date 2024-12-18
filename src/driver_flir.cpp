@@ -130,7 +130,7 @@ namespace driver_flir
 
 
 	cv::Mat rawRgb = cv::Mat(1, JpgSize, CV_8UC1, &buf85[28+ThermalSize]);
-	cv::Mat decodedImage  =  cv::imdecode( rawRgb, CV_LOAD_IMAGE_COLOR);
+	cv::Mat decodedImage  =  cv::imdecode( rawRgb, cv::IMREAD_COLOR);
 	cv::cvtColor(decodedImage, decodedImage, cv::COLOR_BGR2RGB);
 	std_msgs::Header header;
 	header.frame_id = camera_frame_;
